@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exibindo os Dados</title>
+  <link rel="stylesheet" href="styles_CV.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+    
+            <img id="displayImage" alt="Imagem"><!--FOTO-->
+    
+            <div class="texto">
+                <h1 id="displayName"></h1><!--NOME-->
+                <p><span id='displayNacionalidade'><!--NACIONALIDADE--></span>, <span id='displayDataNasc'><!--DATA NASCIMENTO--></span> (<span id='displayAno'><!--ANO--></span> anni)<br><span id='displayEndereco'><!--ENDEREÇO--></span> <br> <img src="images/mail.png" alt="email"> <span id='displayEmail'><!--EMAIL--></span> <br><img src="images/carro.png" alt="carro" id="imgCarro"> Habilitação de motorista (<span id='displayHabilitacao'><!--HABILITAÇÃO--></span>) <br> <img src="images/fone.png" alt="contato" id="imgFone"><span id="displayTelefone">  </span></p> 
+            </div>
+
+        </header>
+
+        <section>
+            <h2>Perfil Profissional</h2>
+            <p id="displayPerfil"></p>
+        </section>
+
+        <section>
+            <h2>Capacidades e competências</h2><!--ARRUMAR PARA POSSIBILITAR O USUÁRIO INCLUIR MAIS ENTRADAS-->
+            <ul>
+                <li id="displayItem1"></li>
+                <li id="displayItem2"></li>
+                <li id="displayItem3"></li>
+                <li id="displayItem4"></li>
+                <li id="displayItem5"></li>
+                <li id="displayItem6"></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Esperiências profissionais</h2><!--ARRUMAR PARA POSSIBILITAR O USUÁRIO INCLUIR MAIS ENTRADAS-->
+            <div class="job">
+                <h3 id="displayEmpregador"></h3>
+                <p id="displayPosicao"><strong>Posição:</strong> </p>
+                <p id="displayPeriodo"><strong>Período:</strong> </p>
+                <p id="displayRotina"></p>
+                <br>
+                <h3 id="displayEmpregador1"></h3>
+                <p id="displayPosicao1"><strong>Posição:</strong> </p>
+                <p id="displayPeriodo1"><strong>Período:</strong> </p>
+                <p id="displayRotina1"></p>            
+            </div>
+        </section>
+
+        <section>
+            <h2>Instrução e formação</h2><!--ARRUMAR PARA POSSIBILITAR O USUÁRIO INCLUIR MAIS ENTRADAS-->
+            <div class="education">
+                <h3 id="displayFaculdade"></h3>
+                <p id="displayCurso"><strong>Curso:</strong> </p>
+                <p id="displayDuracao"><strong>Período:</strong> </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Competências linguísticas</h2><!--ARRUMAR PARA POSSIBILITAR O USUÁRIO INCLUIR MAIS ENTRADAS-->
+            <ul>
+                <li id="displayLingua1"></li>
+                <li id="displayLingua2"></li>
+            </ul>
+        </section>
+
+        <footer>
+      <p>Eu autorizo o tratamento dos dados pessoais inseridos neste currículo com a finalidade de busca e seleção de funcionários</p>
+        </footer>
+
+    </div>
+
+  <script>
+
+    const imageData = localStorage.getItem('uploadedImage'); //FOTO
+    if (imageData) {
+      document.getElementById('displayImage').src = imageData;
+    } else {
+      alert('Nenhuma imagem foi carregada.');
+    }
+    
+    const name = localStorage.getItem('userName'); //NOME
+    if (name) {
+      document.getElementById('displayName').textContent = `${name}`;
+    } else {
+      document.getElementById('displayName').textContent = 'Nenhum nome encontrado.';
+    }
+    const nacionalidade = localStorage.getItem('userNacionalidade'); //NACIONALIDADE
+    if (nacionalidade) {
+      document.getElementById('displayNacionalidade').textContent = `${nacionalidade}`;
+    } else {
+      document.getElementById('displayNacionalidade').textContent = 'Nacionalidade inválida';
+    }
+    const dataNascimento = localStorage.getItem('userDataNasc'); //DATA NASCIMENTO
+    if (dataNascimento) {
+      document.getElementById('displayDataNasc').textContent = `${dataNascimento}`;
+    } else {
+      document.getElementById('displayDataNasc').textContent = 'Data de nascimento inválida';
+    }
+    const ano = localStorage.getItem('userAno'); //ANO
+    if (ano) {
+      document.getElementById('displayAno').textContent = `${ano}`;
+    } else {
+      document.getElementById('displayAno').textContent = 'Ano inválido';
+    }
+    const endereco = localStorage.getItem('userEndereco'); //ENDEREÇO
+    if (endereco) {
+      document.getElementById('displayEndereco').textContent = `${endereco}`;
+    } else {
+      document.getElementById('displayEndereco').textContent = 'Endereço inválido';
+    }
+    const email = localStorage.getItem('userEmail'); //EMAIL
+    if (email) {
+      document.getElementById('displayEmail').textContent = `${email}`;
+    } else {
+      document.getElementById('displayEmail').textContent = 'Email inválido';
+    }
+    const habilitacao = localStorage.getItem('userHabilitacao'); //HABILITAÇÃO
+    if (habilitacao) {
+      document.getElementById('displayHabilitacao').textContent = `${habilitacao}`;
+    } else {
+      document.getElementById('displayHabilitacao').textContent = 'Dado inserido inválido';
+    }
+    const telefone = localStorage.getItem('userTelefone'); //TELEFONE
+    if (telefone) {
+      document.getElementById('displayTelefone').textContent = `${telefone}`;
+    } else {
+      document.getElementById('displayTelefone').textContent = 'Telefone inválido';
+    }
+    const perfil = localStorage.getItem('userPerfil'); //PERFIL PROFISSIONAL
+    if (perfil) {
+      document.getElementById('displayPerfil').textContent = `${perfil}`;
+    } else {
+      document.getElementById('displayPerfil').textContent = 'Texto inválido';
+    }
+    const item1 = localStorage.getItem('userItem1'); //ITEM 1
+    if (item1) {
+      document.getElementById('displayItem1').textContent = `${item1}`;
+    }   else {
+      document.getElementById('displayItem1').textContent = 'Texto inválido';
+    }
+    const item2 = localStorage.getItem('userItem2'); //ITEM 2
+    if (item2) {
+      document.getElementById('displayItem2').textContent = `${item2}`;
+    }   else {
+      document.getElementById('displayItem2').textContent = 'Texto inválido';
+    }
+    const item3 = localStorage.getItem('userItem3'); //ITEM 3
+    if (item3) {
+      document.getElementById('displayItem3').textContent = `${item3}`;
+    }   else {
+      document.getElementById('displayItem3').textContent = 'Texto inválido';
+    }
+    const item4 = localStorage.getItem('userItem4'); //ITEM 4
+    if (item4) {
+      document.getElementById('displayItem4').textContent = `${item4}`;
+    }   else {
+      document.getElementById('displayItem4').textContent = 'Texto inválido';
+    }
+    const item5 = localStorage.getItem('userItem5'); //ITEM 5
+    if (item5) {
+      document.getElementById('displayItem5').textContent = `${item5}`;
+    }   else {
+      document.getElementById('displayItem5').textContent = 'Texto inválido';
+    }
+    const item6 = localStorage.getItem('userItem6'); //ITEM 6
+    if (item6) {
+      document.getElementById('displayItem6').textContent = `${item6}`;
+    }   else {
+      document.getElementById('displayItem6').textContent = 'Texto inválido';
+    }
+     const empregador = localStorage.getItem('userEmpregador'); //EMPREGADOR
+    if (empregador) {
+      document.getElementById('displayEmpregador').textContent = `${empregador}`;
+    } else {
+      document.getElementById('displayEmpregador').textContent = 'Texto inválido';
+    }
+     const posicao = localStorage.getItem('userPosicao'); //POSIÇÃO
+    if (posicao) {
+      document.getElementById('displayPosicao').textContent = `${posicao}`;
+    } else {
+      document.getElementById('displayPosicao').textContent = 'Texto inválido';
+    }
+    const periodo = localStorage.getItem('userPeriodo'); //PERÍODO
+    if (periodo) {
+      document.getElementById('displayPeriodo').textContent = `${periodo}`;
+    } else {
+      document.getElementById('displayPeriodo').textContent = 'Texto inválido';
+    }
+    const rotina = localStorage.getItem('userRotina'); //ROTINA DE TRABALHO
+    if (periodo) {
+      document.getElementById('displayRotina').textContent = `${rotina}`;
+    } else {
+      document.getElementById('displayRotina').textContent = 'Texto inválido';
+    }
+    const empregador1 = localStorage.getItem('userEmpregador1'); //EMPREGADOR
+    if (empregador1) {
+      document.getElementById('displayEmpregador1').textContent = `${empregador1}`;
+    } else {
+      document.getElementById('displayEmpregador1').textContent = 'Texto inválido';
+    }
+     const posicao1 = localStorage.getItem('userPosicao1'); //POSIÇÃO
+    if (posicao1) {
+      document.getElementById('displayPosicao1').textContent = `${posicao1}`;
+    } else {
+      document.getElementById('displayPosicao1').textContent = 'Texto inválido';
+    }
+    const periodo1 = localStorage.getItem('userPeriodo1'); //PERÍODO
+    if (periodo1) {
+      document.getElementById('displayPeriodo1').textContent = `${periodo1}`;
+    } else {
+      document.getElementById('displayPeriodo1').textContent = 'Texto inválido';
+    }
+    const rotina1 = localStorage.getItem('userRotina1'); //ROTINA DE TRABALHO
+    if (periodo1) {
+      document.getElementById('displayRotina1').textContent = `${rotina1}`;
+    } else {
+      document.getElementById('displayRotina1').textContent = 'Texto inválido';
+    }
+    const faculdade = localStorage.getItem('userFaculdade'); //FACULDADE
+    if (faculdade) {
+      document.getElementById('displayFaculdade').textContent = `${faculdade}`;
+    } else {
+      document.getElementById('displayFaculdade').textContent = 'Texto inválido';
+    }
+     const curso = localStorage.getItem('userCurso'); //CURSO
+    if (curso) {
+      document.getElementById('displayCurso').textContent = `${curso}`;
+    } else {
+      document.getElementById('displayCurso').textContent = 'Texto inválido';
+    }
+    const duracao = localStorage.getItem('userDuracao'); //DURAÇÃO
+    if (duracao) {
+      document.getElementById('displayDuracao').textContent = `${duracao}`;
+    } else {
+      document.getElementById('displayDuracao').textContent = 'Texto inválido';
+    }
+     const lingua1 = localStorage.getItem('userLingua1'); //LINGUA 1
+    if (lingua1) {
+      document.getElementById('displayLingua1').textContent = `${lingua1}`;
+    }   else {
+      document.getElementById('displayLingua').textContent = 'Texto inválido';
+    }
+    const lingua2 = localStorage.getItem('userLingua2'); //LINGUA 2
+    if (lingua2) {
+      document.getElementById('displayLingua2').textContent = `${lingua2}`;
+    }   else {
+      document.getElementById('displayLingua2').textContent = 'Texto inválido';
+    }
+    
+  </script>
+
+</body>
+
+</html>

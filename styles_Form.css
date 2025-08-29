@@ -1,0 +1,121 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  width: 0 auto;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #CCCCCC;
+  margin-bottom: 12px;
+}
+
+section, footer{
+    margin:12px;
+}
+
+section{
+    padding: 8px;
+}
+
+section[class="foto"]{
+    background-color:lightcyan;
+}
+
+input[type="text"]{
+    width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-indent: 3px;
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF;
+    background-color: #e6f7ff;
+}
+
+input[type="text"]:hover {
+    border-color: #0056b3;
+}
+
+input[type="email"]{
+    width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-indent: 3px;
+}
+
+textarea{
+  width: 0 auto;
+  text-indent: 3px;
+}
+
+h2{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.foto{
+    margin: 24px;
+    border-bottom:dotted #666
+}
+
+.dados_pessoais{
+    background-color: lightblue;
+    border:solid #666
+}
+
+.dados_profissionais{
+    background-color: lightcyan;
+    border:solid #666
+}
+
+.formacao{
+    background-color: lightblue;
+    border:solid #666
+}
+
+.botao{
+    width: 100px;
+    height: 30px;
+    margin: 12px
+}
+
+#dataNascimento, #email, #nacionalidade, #telefone, #periodo, #periodo1, #lingua1, #lingua2, #duracao{
+    width:200px
+}
+
+
+#habilitacao{
+    width:100px;
+}
+
+#ano{
+    width:50px;
+}
+
+#item1, #item2, #item3, #item4, #item5, #item6{
+    width: 250px;
+}
+
+#empregador, #empregador1, #posicao, #posicao1{
+    width: 300px;
+}
+
+#botao {
+    text-align: center;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 20px;
+  border-top: 1px solid #CCCCCC;
+}

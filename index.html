@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário para Currículo</title>
+  <link rel="stylesheet" href="styles_Form.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Formulário para confecção de currículo</h1>
+  </header>
+
+  <section class="foto"><!--FOTO-->
+    <h2>Selecione uma foto para o seu CV!</h2>
+    <h6>(Atenção! Selecione uma foto para fins profissionais, nada de óculos escuros, regata, chapéu, etc.)</h6><br>
+    <input type="file" id="imageInput" title="Escolhe uma foto boa!" accept="image/*" ><br><br> 
+    <button id="uploadButton">Enviar imagem</button>
+
+    <script>
+    document.getElementById('uploadButton').addEventListener('click', () => {
+        const input = document.getElementById('imageInput');
+        const file = input.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            localStorage.setItem('uploadedImage', e.target.result);
+          };
+          reader.readAsDataURL(file);
+        } else {
+          alert('Por favor, selecione uma imagem antes de continuar.');
+        }
+      });
+    </script>
+
+  </section>
+
+  <section class="formulario">
+    
+    <form onsubmit=saveData(event)>
+      <section class="dados_pessoais">
+        <h2>DADOS PESSOAIS</h2>
+          <label for="name">Digite seu nome:</label><br><!--NOME-->
+          <input type="text" id="name" name="name" maxlength="50" required>
+          <br><br>
+          <label for="nacionalidade">Digite sua nacionalidade:</label><br><!--NACIONALIDADE-->
+          <input type="text" id="nacionalidade" name="nacionalidade" maxlength="50" required>
+          <br><br>
+          <label for="dataNascimento">Digite sua data de nascimento:</label><br><!--DATA NASCIMENTO-->
+          <input type="text" id="dataNascimento" name="dataNascimento" maxlength="40" required>
+          <br><br>
+          <label for="ano">Digite quantos anos você tem?</label><br><!--ANO-->
+          <input type="text" id="ano" name="ano" maxlength="2" required>
+          <br><br>
+          <label for="endereco">Digite seu endereço (Rua, n.º, CEP, Cidade):</label><br><!--ENDEREÇO-->
+          <input type="text" id="endereco" name="endereco" maxlength="80" required>
+          <br><br>
+          <label for="email">Digite seu email:</label><br><!--EMAIL-->
+          <input type="email" id="email" name="email" placeholder='seu.email@email.com' maxlength="30" required>
+          <br><br>
+          <label for="habilitacao">Digite a sua categoria da habilitação de motorista:</label><br><!--HABILITAÇÃO-->
+          <input type="text" id="habilitacao" name="habilitacao" placeholder='A/B/AB/C/D/E' oninput="this.value = this.value.toUpperCase()" maxlength="2" required>
+          <br><br>
+          <label for="telefone">Digite seu telefone:</label><br><!--TELEFONE-->
+          <input type="text" id="telefone" name="telefone" maxlength="20" placeholder="(XX)XXXXX-XXXX" required>
+          <br><br>
+
+      </section>
+
+      <section class="dados_profissionais">
+        <h2>DADOS PROFISSIONAIS</h2>
+          <label for="perfil">Descreva o seu perfil profissional:</label><br><!--PERFIL PROFISSIONAL-->
+          <textarea type="text" id="perfil" name="perfil" rows="5" cols="90" required></textarea>
+          <br><br>
+          <label for="item">Digite capacidades e competências (por exemplo 'pontualidade', 'controle de caixa', 'capacidade comunicativa', etc):</label><br><!--ITENS-->
+          <input type="text" id="item1" name="item1" placeholder="1." required><br><br>
+          <input type="text" id="item2" name="item2" placeholder="2." required><br><br>
+          <input type="text" id="item3" name="item3" placeholder="3." required><br><br>
+          <input type="text" id="item4" name="item4" placeholder="4." required><br><br>
+          <input type="text" id="item5" name="item5" placeholder="5." required><br><br>
+          <input type="text" id="item6" name="item6" placeholder="6." required><br><br>
+          <br><br>
+          <label for="empregador">Digite o nome de um empregador:</label><br><!--EMPREGADOR-->
+          <input type="text" id="empregador" name="empregador" required><br>
+          <br><br>
+          <label for="posicao">Digite a sua posição de trabalho:</label><br><!--POSIÇÃO-->
+          <input type="text" id="posicao" name="posicao" required><br>
+          <br><br>
+          <label for="periodo">Digite o período trabalhado:</label><br><!--PERÍODO-->
+          <input type="text" id="periodo" name="periodo" placeholder="mês/AAAA - mês/AAAA" required><br>
+          <br><br>
+          <label for="rotina">Descreva a sua rotina de trabalho:</label><br><!--ROTINA DE TRABALHO-->
+          <textarea type="text" id="rotina" name="rotina" rows="5" cols="90" required></textarea>
+          <br><br>
+          <label for="empregador1">Digite o nome de um empregador:</label><br><!--EMPREGADOR-->
+          <input type="text" id="empregador1" name="empregador1" required><br>
+          <br><br>
+          <label for="posicao1">Digite a sua posição de trabalho:</label><br><!--POSIÇÃO-->
+          <input type="text" id="posicao1" name="posicao1" required><br>
+          <br><br>
+          <label for="periodo1">Digite o período trabalhado:</label><br><!--PERÍODO-->
+          <input type="text" id="periodo1" name="periodo1" placeholder="mês/AAAA - mês/AAAA" required><br>
+          <br><br>
+          <label for="rotina1">Descreva a sua rotina de trabalho:</label><br><!--ROTINA DE TRABALHO-->
+          <textarea type="text" id="rotina1" name="rotina1" rows="5" cols="90" required></textarea>
+          <br><br>
+
+      </section>
+
+      <section class="formacao">
+        <h2>FORMAÇÃO</h2>
+          <label for="faculdade">Digite o nome da faculdade:</label><br><!--FACULDADE-->
+          <input type="text" id="faculdade" name="faculdade" required><br><br>
+          <label for="curso">Digite o nome do curso:</label><br><!--CURSO-->
+          <input type="text" id="curso" name="curso" required><br><br>
+          <label for="duracao">Digite a duração do curso:</label><br><!--DURAÇÃO-->
+          <input type="text" id="duracao" name="duracao" placeholder="mês/AAAA - mês/AAAA" required><br><br>
+          <label for="lingua">Digite seus idiomas:</label><br><!--ITENS-->
+          <input type="text" id="lingua1" name="lingua1" placeholder="p.ex.: português (nativo)" required><br><br>
+          <input type="text" id="lingua2" name="lingua2" placeholder="p.ex.: inglês (avançado)" required><br>
+          <br><br>
+
+      </section>
+
+      <section class="enviar" id="botao">
+        <h2>Se você já preencheu todos os campos, basta clicar no botão abaixo para ver o seu CV!</h2><br>
+        <button type="submit" id="enviar" class="botao" target="_blank">Enviar</button>
+
+      </section>
+
+
+
+    </form>
+
+  </section>
+
+  <footer>
+      <p>Todos os direitos reservados - Marcelo Medeiros Benitez</p>
+  </footer>
+
+<!--DADOS-->
+  <script>
+    function saveData(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value; // NOME
+      localStorage.setItem('userName', name);
+      const nacionalidade = document.getElementById('nacionalidade').value; // NACIONALIDADE
+      localStorage.setItem('userNacionalidade', nacionalidade);
+      const dataNascimento = document.getElementById('dataNascimento').value; // DATA NASCIMENTO
+      localStorage.setItem('userDataNasc', dataNascimento);
+      const ano = document.getElementById('ano').value; //ANO
+      localStorage.setItem('userAno', ano);
+      const endereco = document.getElementById('endereco').value; // ENDEREÇO
+      localStorage.setItem('userEndereco', endereco);
+      const email = document.getElementById('email').value; // EMAIL
+      localStorage.setItem('userEmail', email); 
+      const habilitacao = document.getElementById('habilitacao').value; //HABILITAÇÃO
+      localStorage.setItem('userHabilitacao', habilitacao);
+      const telefone = document.getElementById('telefone').value; //TELEFONE
+      localStorage.setItem('userTelefone', telefone);
+      const perfil = document.getElementById('perfil').value; //PERFIL PROFISSIONAL
+      localStorage.setItem('userPerfil', perfil);
+      const item1 = document.getElementById('item1').value; //ITEM 1
+      localStorage.setItem('userItem1', item1);
+      const item2 = document.getElementById('item2').value; //ITEM 2
+      localStorage.setItem('userItem2', item2);
+      const item3 = document.getElementById('item3').value; //ITEM 3
+      localStorage.setItem('userItem3', item3);
+      const item4 = document.getElementById('item4').value; //ITEM 4
+      localStorage.setItem('userItem4', item4);
+      const item5 = document.getElementById('item5').value; //ITEM 5
+      localStorage.setItem('userItem5', item5);
+      const item6 = document.getElementById('item6').value; //ITEM 6
+      localStorage.setItem('userItem6', item6);
+      const empregador = document.getElementById('empregador').value; //EMPREGADOR
+      localStorage.setItem('userEmpregador', empregador);
+      const posicao = document.getElementById('posicao').value; //POSIÇÃO
+      localStorage.setItem('userPosicao', posicao);
+      const periodo = document.getElementById('periodo').value; //PERÍODO
+      localStorage.setItem('userPeriodo', periodo);
+      const rotina = document.getElementById('rotina').value; //ROTINA DE TRABALHO
+      localStorage.setItem('userRotina', rotina);
+      const empregador1 = document.getElementById('empregador1').value; //EMPREGADOR
+      localStorage.setItem('userEmpregador1', empregador1);
+      const posicao1 = document.getElementById('posicao1').value; //POSIÇÃO
+      localStorage.setItem('userPosicao1', posicao1);
+      const periodo1 = document.getElementById('periodo1').value; //PERÍODO
+      localStorage.setItem('userPeriodo1', periodo1);
+      const rotina1 = document.getElementById('rotina1').value; //ROTINA DE TRABALHO
+      localStorage.setItem('userRotina1', rotina1);
+      const faculdade = document.getElementById('faculdade').value; //FACULDADE
+      localStorage.setItem('userFaculdade', faculdade);
+      const curso = document.getElementById('curso').value; //CURSO
+      localStorage.setItem('userCurso', curso);
+      const duracao = document.getElementById('duracao').value; //DURAÇÃO
+      localStorage.setItem('userDuracao', duracao);
+      const lingua1 = document.getElementById('lingua1').value; //LINGUA 1
+      localStorage.setItem('userLingua1', lingua1);
+      const lingua2 = document.getElementById('lingua2').value; //LINGUA 2
+      localStorage.setItem('userLingua2', lingua2);
+      window.location.href = 'CV.html'; // Redireciona para a outra página
+    }
+    
+  </script>
+</body>
+
+</html>
